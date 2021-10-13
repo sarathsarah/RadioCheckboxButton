@@ -165,3 +165,23 @@ private extension UIBezierPath {
     }
     
 }
+
+extension RadioButton {
+    func centerAlign() {
+        let size = CGSize(width: radioCircle.outer, height: radioCircle.outer)
+        let newrect = CGRect(origin: CGPoint(x: bounds.width/2 - (radioCircle.outer/2), y: bounds.size.height/2-(radioCircle.outer/2)), size: size)
+        outerLayer.path = UIBezierPath(roundedRect: newrect, cornerRadius: size.height/2).cgPath
+        outerLayer.removeFromSuperlayer()
+        layer.insertSublayer(outerLayer, at: 0)
+        guard let rect = outerLayer.path?.boundingBox else { return }
+        innerLayer.fillColor = radioButtonColor.active.cgColor
+        innerLayer.strokeColor = UIColor.clear.cgColor
+        innerLayer.lineWidth = 0
+        innerLayer.activePath = UIBezierPath.innerCircleActive(rect: rect, circle: radioCircle, style: style).cgPath
+        innerLayer.inactivePath = UIBezierPath.innerCircleInactive(rect: rect).cgPath
+        innerLayer.path = innerLayer.inactivePath
+        innerLayer.removeFromSuperlayer()
+        outerLayer.insertSublayer(innerLayer, at: 0)
+        super.setupLayer()
+    }
+}
