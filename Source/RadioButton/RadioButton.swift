@@ -167,7 +167,7 @@ private extension UIBezierPath {
 }
 
 extension RadioButton {
-    func centerAlign() {
+    public func centerAlign() {
         let size = CGSize(width: radioCircle.outer, height: radioCircle.outer)
         let newrect = CGRect(origin: CGPoint(x: bounds.width/2 - (radioCircle.outer/2), y: bounds.size.height/2-(radioCircle.outer/2)), size: size)
         outerLayer.path = UIBezierPath(roundedRect: newrect, cornerRadius: size.height/2).cgPath
