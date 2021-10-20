@@ -136,7 +136,7 @@ private extension UIBezierPath {
     /// Get outer circle layer
     static func outerCircle(rect: CGRect, circle: RadioButtonCircleStyle, style: RadioCheckboxStyle) -> UIBezierPath {
         let size = CGSize(width: circle.outer, height: circle.outer)
-        let newrect = CGRect(origin: CGPoint(x: bounds.width/2 - (circle.outer/2), y: bounds.size.height/2-(circle.outer/2)), size: size)
+        let newRect = CGRect(origin: CGPoint(x: rect.width/2 - (circle.outer/2), y: rect.size.height/2-(circle.outer/2)), size: size)
         switch style {
         case .circle: return UIBezierPath(roundedRect: newRect, cornerRadius: size.height/2)
         case .square: return UIBezierPath(rect: newRect)
