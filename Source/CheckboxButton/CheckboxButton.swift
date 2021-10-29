@@ -52,7 +52,7 @@ public class CheckboxButton: RadioCheckboxBaseButton {
         }
     }
     /// Center Align Radio Button
-    public var isCenterAlign: Bool!  {
+    public var isCenterAlign: Bool = false {
         didSet {
             setupLayer()
         }
