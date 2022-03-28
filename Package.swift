@@ -8,14 +8,14 @@ let package = Package(
     platforms: [.iOS(.v10)],
     products: [
         .library(
-            name: "RadioCheckboxButton",
-            targets: ["RadioCheckboxButton"]),
+            name: "MBRadioCheckboxButton",
+            targets: ["MBRadioCheckboxButton"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
-            name: "RadioCheckboxButton",
+            name: "MBRadioCheckboxButton",
             dependencies: [],
             path: "Source/"),
     ]
